@@ -7,17 +7,9 @@ import java.util.Stack;
 
 public class IterativePostOrder {
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(7);
-        root.left.left = new TreeNode(3);
-        root.left.left.right = new TreeNode(4);
-        root.left.left.right.right = new TreeNode(5);
-        root.left.left.right.right.right = new TreeNode(6);
-        root.right = new TreeNode(7);
-        root.right.left = new TreeNode(8);
-
+        TreeNode root = createBinaryTree();
         ArrayList<Integer> postOrderTraversal = postOrderTraversalSingleStack(root);
-        postOrderTraversal.forEach(System.out::print  );
+        postOrderTraversal.forEach(System.out::print);
     }
 
     private static ArrayList<Integer> postOrderTraversalSingleStack(TreeNode curr) {
@@ -45,5 +37,17 @@ public class IterativePostOrder {
             }
         }
         return postOrderList;
+    }
+
+    private static TreeNode createBinaryTree() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(7);
+        root.left.left = new TreeNode(3);
+        root.left.left.right = new TreeNode(4);
+        root.left.left.right.right = new TreeNode(5);
+        root.left.left.right.right.right = new TreeNode(6);
+        root.right = new TreeNode(7);
+        root.right.left = new TreeNode(8);
+        return root;
     }
 }

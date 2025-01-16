@@ -5,16 +5,12 @@ import binaryTree.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
+import static binaryTree.traversal.PostOrder.createSampleBinaryTree;
+
 public class PreOrder {
     public static void main(String[] args) {
         // Creating a sample binary tree
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
-        root.left.left = new TreeNode(4);
-        root.left.right = new TreeNode(5);
-        root.right.left = new TreeNode(6);
-        root.right.right = new TreeNode(7);
+        TreeNode root = createSampleBinaryTree();
 
         // Getting preorder traversal
         List<Integer> result = preOrder(root);

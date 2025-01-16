@@ -7,21 +7,17 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+import static binaryTree.traversal.PostOrder.createSampleBinaryTree;
+
 public class LevelOrder {
     public static void main(String[] args) {
         // Creating a sample binary tree
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
-        root.left.left = new TreeNode(4);
-        root.left.right = new TreeNode(5);
-        root.right.left = new TreeNode(6);
-        root.right.right = new TreeNode(7);
+        TreeNode root = createSampleBinaryTree();
 
-        // Getting preorder traversal
+        // Getting levelOrder traversal
         List<List<Integer>> result = levelOrder(root);
 
-        // Displaying the preorder traversal result
+        // Displaying the levelOrder traversal result
         System.out.print("Level order Traversal: ");
         result.stream().flatMap(List::stream).toList().forEach(System.out::print);
     }

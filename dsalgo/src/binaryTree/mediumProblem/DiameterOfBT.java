@@ -39,7 +39,7 @@ public class DiameterOfBT {
         return 1 + Math.max(lh, rh);
     }
 
-    private static int getHeight(TreeNode node) {
+    static int getHeight(TreeNode node) {
         if (node == null) return 0;
         return 1 + Math.max(getHeight(node.left), getHeight(node.right));
     }
