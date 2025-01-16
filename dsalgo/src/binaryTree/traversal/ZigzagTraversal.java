@@ -12,8 +12,10 @@ import static binaryTree.TreeNode.printBinaryTree;
 public class ZigzagTraversal {
     public static void main(String[] args) {
         TreeNode root = createBinaryTree();
+        System.out.println("----Original Tree-----");
         printBinaryTree(root);
         List<List<Integer>> zigzaggedTrav = zigzagTrav(root);
+        System.out.println("----Zig-zag Traversal-----");
         for (List<Integer> level : zigzaggedTrav) {
             for (Integer nodeVal : level) {
                 System.out.print(nodeVal + " ");
