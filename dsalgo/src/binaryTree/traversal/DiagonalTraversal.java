@@ -15,8 +15,8 @@ public class DiagonalTraversal {
         System.out.println("----Original Tree-----");
         printBinaryTree(root);
         System.out.println("----Diagonal View of Binary Tree-----");
-        List<Integer> bottomView = diagonalView_way1(root);
-        for (Integer nodeVal : bottomView) {
+        List<Integer> diagonalView = diagonalView_way1(root);
+        for (Integer nodeVal : diagonalView) {
             System.out.print(nodeVal + " ");
 
         }
