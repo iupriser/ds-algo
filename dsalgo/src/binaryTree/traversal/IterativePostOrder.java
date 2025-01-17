@@ -5,6 +5,8 @@ import binaryTree.TreeNode;
 import java.util.ArrayList;
 import java.util.Stack;
 
+import static binaryTree.TreeNode.createBinaryTree;
+
 public class IterativePostOrder {
     public static void main(String[] args) {
         TreeNode root = createBinaryTree();
@@ -37,17 +39,5 @@ public class IterativePostOrder {
             }
         }
         return postOrderList;
-    }
-
-    private static TreeNode createBinaryTree() {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(7);
-        root.left.left = new TreeNode(3);
-        root.left.left.right = new TreeNode(4);
-        root.left.left.right.right = new TreeNode(5);
-        root.left.left.right.right.right = new TreeNode(6);
-        root.right = new TreeNode(7);
-        root.right.left = new TreeNode(8);
-        return root;
     }
 }

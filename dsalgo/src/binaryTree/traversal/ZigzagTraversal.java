@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+import static binaryTree.TreeNode.createBinaryTree;
 import static binaryTree.TreeNode.printBinaryTree;
 
 public class ZigzagTraversal {
@@ -50,19 +51,5 @@ public class ZigzagTraversal {
             res.add(currList);
         }
         return res;
-    }
-
-    public static TreeNode createBinaryTree() {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.left.left = new TreeNode(4);
-        root.left.right = new TreeNode(5);
-        root.right = new TreeNode(3);
-        root.right.left = new TreeNode(6);
-        root.right.right = new TreeNode(7);
-        root.right.right.left = new TreeNode(8);
-        root.right.right.right = new TreeNode(9);
-
-        return root;
     }
 }

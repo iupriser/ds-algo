@@ -4,8 +4,8 @@ import binaryTree.TreeNode;
 
 import java.util.*;
 
+import static binaryTree.TreeNode.createBinaryTree;
 import static binaryTree.TreeNode.printBinaryTree;
-import static binaryTree.traversal.ZigzagTraversal.createBinaryTree;
 
 public class VerticalOrderTraversal {
     public static void main(String[] args) {

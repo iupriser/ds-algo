@@ -7,12 +7,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import static binaryTree.traversal.PostOrderTraversal.createSampleBinaryTree;
+import static binaryTree.TreeNode.createBinaryTree;
 
 public class LevelOrderTraversal {
     public static void main(String[] args) {
         // Creating a sample binary tree
-        TreeNode root = createSampleBinaryTree();
+        TreeNode root = createBinaryTree();
 
         // Getting levelOrder traversal
         List<List<Integer>> result = levelOrder(root);

@@ -5,6 +5,8 @@ import binaryTree.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
+import static binaryTree.TreeNode.createBinaryTree;
+
 public class PrintPathRootToLeaf {
     public static void main(String[] args) {
         TreeNode root = createBinaryTree();
@@ -64,19 +66,5 @@ public class PrintPathRootToLeaf {
             // backtracking
             currPath.remove(currPath.size() - 1);
         }
-    }
-
-
-    private static TreeNode createBinaryTree() {
-        // Creating a sample binary tree
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
-        root.left.left = new TreeNode(4);
-        root.left.right = new TreeNode(5);
-        root.right.left = new TreeNode(6);
-        root.right.right = new TreeNode(7);
-
-        return root;
     }
 }

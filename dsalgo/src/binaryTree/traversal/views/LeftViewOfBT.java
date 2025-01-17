@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+import static binaryTree.TreeNode.createBinaryTree;
 import static binaryTree.TreeNode.printBinaryTree;
-import static binaryTree.traversal.ZigzagTraversal.createBinaryTree;
 
 public class LeftViewOfBT {
     public static void main(String[] args) {

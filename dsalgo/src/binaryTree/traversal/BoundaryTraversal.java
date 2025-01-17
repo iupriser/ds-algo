@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+import static binaryTree.TreeNode.createBinaryTree;
 import static binaryTree.TreeNode.printBinaryTree;
-import static binaryTree.traversal.ZigzagTraversal.createBinaryTree;
 
 public class BoundaryTraversal {
     public static void main(String[] args) {

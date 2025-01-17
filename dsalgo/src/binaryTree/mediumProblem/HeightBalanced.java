@@ -2,14 +2,15 @@ package binaryTree.mediumProblem;
 
 import binaryTree.TreeNode;
 
+import static binaryTree.TreeNode.createBinaryTree;
 import static binaryTree.mediumProblem.DiameterOfBT.getHeight;
 
 public class HeightBalanced {
     public static void main(String[] args) {
-        TreeNode root = createTree();
+        TreeNode root = createBinaryTree();
         System.out.println("is Binary tree is Height balanced: " + isHeightBalanceBrute(root));
         //Optimal
-        root = createTree();
+        root = createBinaryTree();
         System.out.println("is Binary tree is Height balanced: " + isHeightBalanceOptimal(root));
     }
 
@@ -30,17 +31,5 @@ public class HeightBalanced {
         int rh = dfsHeight(root.right);
         if (Math.abs(rh - lh) > 1) return -1;
         return 1 + Math.max(lh, rh);
-    }
-
-    private static TreeNode createTree() {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.left.left = new TreeNode(4);
-        root.right = new TreeNode(3);
-        root.right.left = new TreeNode(5);
-        root.right.right = new TreeNode(6);
-        root.right.right.left = new TreeNode(7);
-        root.right.right.left.right = new TreeNode(8);
-        return root;
     }
 }

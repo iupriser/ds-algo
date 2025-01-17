@@ -5,12 +5,12 @@ import binaryTree.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
-import static binaryTree.traversal.PostOrderTraversal.createSampleBinaryTree;
+import static binaryTree.TreeNode.createBinaryTree;
 
 public class InOrderTraversal {
     public static void main(String[] args) {
         // Creating a sample binary tree
-        TreeNode root = createSampleBinaryTree();
+        TreeNode root = createBinaryTree();
 
         // Getting inorder traversal
         List<Integer> result = inOrder(root);
