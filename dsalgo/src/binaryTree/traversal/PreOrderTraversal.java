@@ -5,36 +5,36 @@ import binaryTree.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
-import static binaryTree.traversal.PostOrder.createSampleBinaryTree;
+import static binaryTree.traversal.PostOrderTraversal.createSampleBinaryTree;
 
-public class InOrder {
+public class PreOrderTraversal {
     public static void main(String[] args) {
         // Creating a sample binary tree
         TreeNode root = createSampleBinaryTree();
 
-        // Getting inorder traversal
-        List<Integer> result = inOrder(root);
+        // Getting preorder traversal
+        List<Integer> result = preOrder(root);
 
         // Displaying the preorder traversal result
-        System.out.print("Inorder Traversal: ");
+        System.out.print("Preorder Traversal: ");
         // Output each value in the
-        // inorder traversal result
+        // preorder traversal result
         for (int val : result) {
             System.out.print(val + " ");
         }
         System.out.println();
     }
 
-    private static List<Integer> inOrder(TreeNode root) {
+    private static List<Integer> preOrder(TreeNode root) {
         List<Integer> arr = new ArrayList<>();
-        inOrder(root, arr);
+        preOrder(root, arr);
         return arr;
     }
 
-    private static void inOrder(TreeNode root, List<Integer> arr) {
+    private static void preOrder(TreeNode root, List<Integer> arr) {
         if (root == null) return;
-        inOrder(root.left);
         arr.add(root.data);
-        inOrder(root.right);
+        preOrder(root.left, arr);
+        preOrder(root.right, arr);
     }
 }

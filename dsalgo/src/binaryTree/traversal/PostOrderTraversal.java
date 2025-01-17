@@ -5,7 +5,7 @@ import binaryTree.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostOrder {
+public class PostOrderTraversal {
     public static void main(String[] args) {
         // Creating a sample binary tree
         TreeNode root = createSampleBinaryTree();
