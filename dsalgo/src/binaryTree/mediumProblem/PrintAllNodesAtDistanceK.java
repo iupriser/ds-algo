@@ -37,7 +37,7 @@ public class PrintAllNodesAtDistanceK {
         Queue<TreeNode> q = new LinkedList<>();
         q.offer(target);
         isVisited.add(target);
-        while (!q.isEmpty() & distance != k) {
+        while (!q.isEmpty() && distance != k) {
             int size = q.size();
             distance++;
             for (int i = 0; i < size; i++) {
