@@ -1,4 +1,4 @@
-package binaryTree.mediumProblem;
+package binaryTree.hardProblem;
 
 import binaryTree.TreeNode;
 
