@@ -4,15 +4,18 @@ import static linkedList.Node.createLL;
 import static linkedList.Node.printLL;
 
 //https://leetcode.com/problems/add-two-numbers-ii/description/
+//The most significant digit comes first and each of their nodes
+// contains a single digit. Add the two numbers and return the sum as a linked list.
 public class AddTwoNumberII {
     public static void main(String[] args) {
-        // l1 = 7243
         int[] num1 = {9, 2, 4, 3};
+        // most significant
+        // 9->2->4->3, 9(MSD and head), 3(LSD)
         Node l1 = createLL(num1);
-        // l2 = 564
         int[] num2 = {8, 6, 4};
+        // 8->6->4, 8(MSD and head), 4(LSD)
         Node l2 = createLL(num2);
-
+        // 9243+864 = 10007, 1->0->0->0->7, 1(MSD and head), 7(LSD)
         Node summedList = addTwoNumbers(l1, l2);
         printLL(summedList);
 
@@ -22,10 +25,11 @@ public class AddTwoNumberII {
         printLL(summedList);
     }
 
+    // creating new LL to store summed LL
     private static Node addTwoNumbers(Node l1, Node l2) {
         l1 = reverseLL(l1);
         l2 = reverseLL(l2);
-        Node dummy = new Node();
+        Node dummy = new Node(-1);
         Node tmp = dummy;
         int carry = 0;
         while (l1 != null || l2 != null || carry == 1) {
@@ -46,6 +50,7 @@ public class AddTwoNumberII {
         return reverseLL(dummy.next);
     }
 
+    // adding sum to longest LL to avoid extra space
     private static Node addTwoNumbersWithoutExtraSpace(Node l1, Node l2) {
         int nodesInList1 = countNodes(l1);
         int nodesInList2 = countNodes(l2);
