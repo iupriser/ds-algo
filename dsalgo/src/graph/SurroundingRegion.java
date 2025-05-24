@@ -3,6 +3,8 @@ package graph;
 // https://leetcode.com/problems/surrounded-regions/description/
 // https://www.geeksforgeeks.org/problems/replace-os-with-xs0052/1
 public class SurroundingRegion {
+    // TC: O(N*M)
+    // SC: O(N*M)
     static char[][] fill(char mat[][]) {
         int n = mat.length;
         int m = mat[0].length;
@@ -34,7 +36,7 @@ public class SurroundingRegion {
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                if (vis[i][j] == 0 && mat[i][j] == '0') {
+                if (vis[i][j] == 0 && mat[i][j] == 'O') {
                     mat[i][j] = 'X';
                 }
             }
@@ -51,7 +53,7 @@ public class SurroundingRegion {
         for (int i = 0; i < 4; i++) {
             int nrow = row + delrow[i];
             int ncol = col + delcol[i];
-            if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && vis[nrow][ncol] == 0 && mat[nrow][ncol] == '0') {
+            if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && vis[nrow][ncol] == 0 && mat[nrow][ncol] == 'O') {
                 dfs(nrow, ncol, vis, mat, delrow, delcol);
             }
         }
