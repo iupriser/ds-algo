@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// TC: O(N+2E) + O(N)
+// SC: O(N) + O(N)
 public class DetectCycleUndirectedBFS {
     public static void main(String[] args) {
         int[][] edges = {{0, 1}, {0, 2}, {1, 2}, {2, 3}};
@@ -18,13 +20,13 @@ public class DetectCycleUndirectedBFS {
         boolean[] vis = new boolean[V];
         for (int i = 0; i < V; i++) {
             if (!vis[i]) {
-                if (checkForCycle(i, V, adj, vis)) return true;
+                if (checkForCycle(i, adj, vis)) return true;
             }
         }
         return false;
     }
 
-    public boolean checkForCycle(int src, int V, ArrayList<ArrayList<Integer>> adj, boolean[] vis) {
+    public boolean checkForCycle(int src, ArrayList<ArrayList<Integer>> adj, boolean[] vis) {
         // {vertex, parentOfVertex}
         Queue<Pair> q = new LinkedList<>();
         q.add(new Pair(src, -1));
