@@ -7,14 +7,6 @@ import java.util.Queue;
 // TC: O(N+2E) + O(N)
 // SC: O(N) + O(N)
 public class DetectCycleUndirectedBFS {
-    public static void main(String[] args) {
-        int[][] edges = {{0, 1}, {0, 2}, {1, 2}, {2, 3}};
-        int V = 4;
-        DetectCycleUndirectedBFS obj = new DetectCycleUndirectedBFS();
-        boolean isCyclePresent = obj.isCycle(4, edges);
-        System.out.println("is cycle present : " + isCyclePresent);
-    }
-
     public boolean isCycle(int V, int[][] edges) {
         ArrayList<ArrayList<Integer>> adj = constructAdjList(V, edges);
         boolean[] vis = new boolean[V];
@@ -61,5 +53,13 @@ public class DetectCycleUndirectedBFS {
             adj.get(edge[1]).add(edge[0]);
         }
         return adj;
+    }
+
+    public static void main(String[] args) {
+        int[][] edges = {{0, 1}, {0, 2}, {1, 2}, {2, 3}};
+        int V = 4;
+        DetectCycleUndirectedBFS obj = new DetectCycleUndirectedBFS();
+        boolean isCyclePresent = obj.isCycle(4, edges);
+        System.out.println("is cycle present : " + isCyclePresent);
     }
 }
