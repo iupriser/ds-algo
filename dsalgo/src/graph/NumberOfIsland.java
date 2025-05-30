@@ -2,6 +2,7 @@ package graph;
 //https://leetcode.com/problems/number-of-islands/description/
 
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Queue;
 
 public class NumberOfIsland {
@@ -66,5 +67,18 @@ class Pair {
     public Pair(int first, int second) {
         this.first = first;
         this.second = second;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pair)) return false;
+        Pair pair = (Pair) o;
+        return first == pair.first && second == pair.second;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(first, second);
     }
 }
