@@ -2,7 +2,7 @@ package graph;
 
 import java.util.ArrayList;
 
-public class DirectedGraphCycleDFS {
+public class DetectCycleDirectedGraphDFS {
     public boolean isCyclic(int V, int[][] edges) {
         ArrayList<ArrayList<Integer>> adj = createAdjacencyList(edges, V);
         int[] vis = new int[V];
@@ -77,7 +77,7 @@ public class DirectedGraphCycleDFS {
     public static void main(String[] args) {
         int V = 4;
         int[][] edges = {{0, 1}, {0, 2}, {1, 2}, {2, 0}, {2, 3}};
-        DirectedGraphCycleDFS obj = new DirectedGraphCycleDFS();
+        DetectCycleDirectedGraphDFS obj = new DetectCycleDirectedGraphDFS();
         boolean isCyclic = obj.isCyclic(V, edges);
         System.out.println("Is directed graph is cyclic: " + isCyclic);
     }
