@@ -8,6 +8,7 @@ import java.util.Queue;
 public class DetectCycleDirectedGraphBFS {
     public boolean isCyclic(int V, int[][] edges) {
         ArrayList<ArrayList<Integer>> adj = createAdjacencyList(edges, V);
+        //build graph with indegree
         int[] indegree = new int[V];
         for (int i = 0; i < V; i++) {
             for (int neighbour : adj.get(i)) {
