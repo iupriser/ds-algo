@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //https://leetcode.com/problems/find-eventual-safe-states/
-public class EventfulSafeState {
+public class EventfulSafeStateDFS {
     /**
      * anyone who is a part of cycle or anyone connected to cycle are not
      * safe states
@@ -71,7 +71,7 @@ public class EventfulSafeState {
                 {8, 1}, {8, 9}, {9, 10}, {10, 8}, {11, 9}};
         int V = 12;
         List<List<Integer>> adjList = createAdjList(V, graph);
-        EventfulSafeState obj = new EventfulSafeState();
+        EventfulSafeStateDFS obj = new EventfulSafeStateDFS();
         List<Integer> safeNodes = obj.eventualSafeNodes(V, adjList);
         System.out.println(safeNodes);
     }
