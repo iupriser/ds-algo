@@ -9,6 +9,7 @@ public class ShortestPathDAG {
         // run a DFS topo-sort for all connected components
         int[] vis = new int[V];
         Stack<Integer> stk = new Stack();
+        //O(V+E)
         for (int i = 0; i < V; i++) {
             if (vis[i] == 0) {
                 topoSort(i, vis, adj, stk);
@@ -19,6 +20,7 @@ public class ShortestPathDAG {
         dist[src] = 0;
 
         // take the nodes out of stack and relax the edges
+        //O(V+E)
         while (!stk.isEmpty()) {
             int node = stk.pop();
             for (Pair it : adj.get(node)) {
