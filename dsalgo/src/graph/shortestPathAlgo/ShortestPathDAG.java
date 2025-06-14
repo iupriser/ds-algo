@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Stack;
 
 public class ShortestPathDAG {
-    public int[] shortestPath(int V, ArrayList<ArrayList<Pair>> adj, int src) {
+    public int[] shortestPath(int V, ArrayList<ArrayList<PairWeighted>> adj, int src) {
         // run a DFS topo-sort for all connected components
         int[] vis = new int[V];
         Stack<Integer> stk = new Stack();
@@ -23,7 +23,7 @@ public class ShortestPathDAG {
         //O(V+E)
         while (!stk.isEmpty()) {
             int node = stk.pop();
-            for (Pair it : adj.get(node)) {
+            for (PairWeighted it : adj.get(node)) {
                 int v = it.v;
                 int wt = it.wt;
                 if (dist[v] > dist[node] + wt) {
@@ -39,9 +39,9 @@ public class ShortestPathDAG {
         return dist;
     }
 
-    public void topoSort(int node, int[] vis, ArrayList<ArrayList<Pair>> adj, Stack<Integer> stk) {
+    public void topoSort(int node, int[] vis, ArrayList<ArrayList<PairWeighted>> adj, Stack<Integer> stk) {
         vis[node] = 1;
-        for (Pair it : adj.get(node)) {
+        for (PairWeighted it : adj.get(node)) {
             if (vis[it.v] == 0) {
                 topoSort(it.v, vis, adj, stk);
             }
@@ -49,9 +49,9 @@ public class ShortestPathDAG {
         stk.push(node);
     }
 
-    private static ArrayList<ArrayList<Pair>> createAdjacencyList(int V,
-                                                                  int[][] edges) {
-        ArrayList<ArrayList<Pair>> adj = new ArrayList<>();
+    private static ArrayList<ArrayList<PairWeighted>> createAdjacencyList(int V,
+                                                                          int[][] edges) {
+        ArrayList<ArrayList<PairWeighted>> adj = new ArrayList<>();
         for (int i = 0; i < V; i++) {
             adj.add(new ArrayList<>());
         }
@@ -59,7 +59,7 @@ public class ShortestPathDAG {
             int u = edge[0];
             int v = edge[1];
             int wt = edge[2];
-            adj.get(u).add(new Pair(v, wt));
+            adj.get(u).add(new PairWeighted(v, wt));
         }
         return adj;
     }
@@ -68,7 +68,7 @@ public class ShortestPathDAG {
         int V = 7;
         int[][] edges = {{0, 4, 2}, {0, 5, 3}, {5, 4, 1}, {4, 6, 3}, {4, 2, 1}, {6, 1, 2}, {2, 3
                 , 3}, {1, 3, 1}};
-        ArrayList<ArrayList<Pair>> adj = createAdjacencyList(V, edges);
+        ArrayList<ArrayList<PairWeighted>> adj = createAdjacencyList(V, edges);
         int src = 0;
         ShortestPathDAG obj = new ShortestPathDAG();
         int[] shortestPath = obj.shortestPath(V, adj, src);
@@ -76,12 +76,14 @@ public class ShortestPathDAG {
     }
 }
 
-class Pair {
+class PairWeighted {
     int v;
     int wt;
 
-    public Pair(int v, int wt) {
+    public PairWeighted(int v, int wt) {
         this.v = v;
         this.wt = wt;
     }
 }
+// use of record
+//public record PairWeighted(int wt, int v) {}
