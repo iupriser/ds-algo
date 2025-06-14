@@ -27,10 +27,10 @@ public class DjisktraAlgoWithSet {
             for (PairWithWeight adjNode : adj.get(u)) {
                 int v = adjNode.v();
                 int wt = adjNode.wt();
-                // If there is shorter path to v through u.
+                // If there is shorter path to node through u.
                 if (dist[v] > dist[u] + wt) {
                      /* if there exist a path already with larger distance
-                     {as we have already checked dist[v] > dist[u]+ wt},
+                     {as we have already checked dist[node] > dist[u]+ wt},
                      remove it from set */
                     if (dist[v] != Integer.MAX_VALUE) {
                         // set.remove takes logarithm

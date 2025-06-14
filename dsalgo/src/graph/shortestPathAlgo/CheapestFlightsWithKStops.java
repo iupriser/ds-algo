@@ -17,6 +17,7 @@ public class CheapestFlightsWithKStops {
         costs[src] = 0;
         q.add(new TupleFlight(0, src, 0));
         // E => flights.size
+        // TC:o(E) and not ElogV, as we are not using PQ
         while (!q.isEmpty()) {
             TupleFlight top = q.poll();
             int u = top.node;

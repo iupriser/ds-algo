@@ -86,4 +86,4 @@ class PairWeighted {
     }
 }
 // use of record
-//public record PairWeighted(int wt, int v) {}
+//public record PairWeighted(int wt, int node) {}
