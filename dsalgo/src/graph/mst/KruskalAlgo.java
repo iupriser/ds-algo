@@ -20,11 +20,12 @@ public class KruskalAlgo {
                 edges.add(edge);
             }
         }
+        // M log M
         Collections.sort(edges);
 
         DisjointSet ds = new DisjointSet(V);
         int mstWt = 0;
-
+        // M * 4 * alpha * 2
         for (int i = 0; i < edges.size(); i++) {
             int wt = edges.get(i).wt;
             int u = edges.get(i).u;
@@ -32,6 +33,7 @@ public class KruskalAlgo {
 
             if (ds.findUPar(u) != ds.findUPar(v)) {
                 mstWt += wt;
+                // 4*alpha
                 ds.unionBySize(u, v);
             }
         }
