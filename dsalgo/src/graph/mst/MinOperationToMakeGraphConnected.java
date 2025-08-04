@@ -29,7 +29,7 @@ public class MinOperationToMakeGraphConnected {
             if(ds.parent.get(i) == i) cntComponent++;
         }
         int ans = cntComponent-1;
-        if(cntExtra == ans) return ans;
+        if(cntExtra >= ans) return ans;
         return -1;
     }
     public static void main(String[] args) {
