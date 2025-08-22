@@ -1,4 +1,4 @@
-package graph;
+package graph.bfs_dfs;
 
 //https://www.geeksforgeeks.org/problems/connected-components-in-an-undirected-graph/1
 

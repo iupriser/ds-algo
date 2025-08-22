@@ -1,4 +1,6 @@
-package graph;
+package graph.bfs_dfs;
+
+import graph.basics.Pair;
 
 import java.util.LinkedList;
 import java.util.Queue;

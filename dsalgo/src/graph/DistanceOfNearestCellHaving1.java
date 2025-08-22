@@ -1,5 +1,7 @@
 package graph;
 
+import graph.basics.Pair;
+
 import java.util.LinkedList;
 import java.util.Queue;
 

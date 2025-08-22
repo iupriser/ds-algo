@@ -5,7 +5,7 @@ import java.util.*;
 public class AccountMerge {
     public List<List<String>> accountsMerge(List<List<String>> accounts) {
         int n = accounts.size();
-        DisjointSet ds = new DisjointSet(n - 1);
+        DisjointSet ds = new DisjointSet(n);
         // "johnsmith@mail.com" -> 0
         // "john_newyork@mail.com" -> 0
         // "johnsmith@mail.com" -> 1 ==> 1

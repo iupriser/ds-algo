@@ -1,22 +1,23 @@
-package graph;
+package graph.basics;
 
 import java.util.ArrayList;
 
 public class GraphRepresentation {
     public static void main(String[] args) {
-        graphReprAdjacencyMatrix();
-        graphReprAdjacencyList();
+        GraphRepresentation obj = new GraphRepresentation();
+        obj.graphReprAdjacencyMatrix();
+        obj.graphReprAdjacencyList();
 //        printAdjacenyMatrix();
 //        printAdjacenyList();
     }
 
     // To add an edge in an undirected graph
-    public static void addEdge(ArrayList<ArrayList<Integer>> adj, int s, int t) {
+    public void addEdge(ArrayList<ArrayList<Integer>> adj, int s, int t) {
         adj.get(s).add(t);
         adj.get(t).add(s);
     }
 
-    public static ArrayList<ArrayList<Integer>> createAdjListFromEdge(int V, int[][] edges) {
+    public ArrayList<ArrayList<Integer>> createAdjListFromEdge(int V, int[][] edges) {
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
         // Initialize 1-based adjacency list
         for (int i = 0; i <= V; i++) {
@@ -32,7 +33,7 @@ public class GraphRepresentation {
     }
 
     // edges to adjList
-    private static ArrayList<ArrayList<Integer>> edgesToAdjList(int n, int[][] edges) {
+    public ArrayList<ArrayList<Integer>> edgesToAdjList(int n, int[][] edges) {
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             adj.add(new ArrayList<>());
@@ -44,7 +45,7 @@ public class GraphRepresentation {
         return adj;
     }
 
-    private static void printAdjacenyList(int n, ArrayList<ArrayList<Integer>> adj) {
+    public void printAdjacenyList(int n, ArrayList<ArrayList<Integer>> adj) {
         for (int i = 1; i <= n; i++) {
             for (int j = 0; j < adj.get(i).size(); i++) {
                 System.out.print(adj.get(i).get(j) + " ");
@@ -54,7 +55,7 @@ public class GraphRepresentation {
     }
 
 
-    private static void graphReprAdjacencyMatrix() {
+    public void graphReprAdjacencyMatrix() {
         int n = 3, m = 3;
         int adj[][] = new int[n + 1][m + 1];
 
@@ -68,7 +69,7 @@ public class GraphRepresentation {
         adj[3][1] = 1;
     }
 
-    private static void graphReprAdjacencyList() {
+    public void graphReprAdjacencyList() {
         int n = 3, m = 3;
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
         // add n+1 arrayList
@@ -86,7 +87,7 @@ public class GraphRepresentation {
         adj.get(3).add(1);
     }
 
-    private void graphReprAdjacencyListWeighted() {
+    public void graphReprAdjacencyListWeighted() {
         int n = 3, m = 3;
         // instead of neighbour, store (Neighbour, Weight)
         ArrayList<ArrayList<WeightedPair>> adj = new ArrayList<>();

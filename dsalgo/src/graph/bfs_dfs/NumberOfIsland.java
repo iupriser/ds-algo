@@ -1,5 +1,7 @@
-package graph;
+package graph.bfs_dfs;
 //https://leetcode.com/problems/number-of-islands/description/
+
+import graph.basics.Pair;
 
 import java.util.LinkedList;
 import java.util.Objects;
@@ -57,28 +59,5 @@ public class NumberOfIsland {
             }
 
         }
-    }
-}
-
-class Pair {
-    int first;
-    int second;
-
-    public Pair(int first, int second) {
-        this.first = first;
-        this.second = second;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Pair)) return false;
-        Pair pair = (Pair) o;
-        return first == pair.first && second == pair.second;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(first, second);
     }
 }

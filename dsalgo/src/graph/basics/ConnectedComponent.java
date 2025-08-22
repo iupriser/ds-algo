@@ -1,9 +1,7 @@
-package graph;
+package graph.basics;
 //https://takeuforward.org/plus/dsa/problems/connected-components
 
 import java.util.ArrayList;
-
-import static graph.GraphRepresentation.createAdjListFromEdge;
 
 /**
  * A connected component is a subgraph of a graph in which there exists a path
@@ -21,7 +19,7 @@ public class ConnectedComponent {
     }
 
     public static int findNumberOfComponent(int E, int V, int[][] edges) {
-        ArrayList<ArrayList<Integer>> adj = createAdjListFromEdge(V, edges);
+        ArrayList<ArrayList<Integer>> adj = new GraphRepresentation().createAdjListFromEdge(V, edges);
         int count = 0;
         // 1-based vertices
         boolean[] vis = new boolean[V + 1];

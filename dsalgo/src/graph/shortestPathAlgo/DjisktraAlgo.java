@@ -11,7 +11,7 @@ public class DjisktraAlgo {
         // min-heap
         PriorityQueue<PairWeighted> pq =
                 new PriorityQueue<>(Comparator.comparingInt(a -> a.wt));
-        int[] dist = new int[V];
+        int[] dist = new int[V+1];
         Arrays.fill(dist, Integer.MAX_VALUE);
         dist[src] = 0;
         pq.add(new PairWeighted(src, 0));
@@ -33,7 +33,7 @@ public class DjisktraAlgo {
     private static ArrayList<ArrayList<PairWeighted>> createAdjacencyList(int V,
                                                                           int[][] edges) {
         ArrayList<ArrayList<PairWeighted>> adj = new ArrayList<>();
-        for (int i = 0; i < V; i++) {
+        for (int i = 0; i <=V; i++) {
             adj.add(new ArrayList<>());
         }
         for (int[] edge : edges) {
@@ -47,7 +47,7 @@ public class DjisktraAlgo {
     }
 
     public static void main(String[] args) {
-        int V = 6;
+        int V = 5;
         int[][] edges = {{0, 1, 4}, {0, 2, 4}, {1, 2, 2}, {2, 3, 3}, {2, 5, 6}, {2, 4,
                 1}, {4, 5, 3}};
         ArrayList<ArrayList<PairWeighted>> adj = createAdjacencyList(V, edges);

@@ -1,8 +1,8 @@
-package graph;
+package graph.bfs_dfs;
 
 import java.util.ArrayList;
 
-import static graph.Traversal.bfs;
+import static graph.basics.Traversal.bfs;
 
 public class NumberOfProvinces {
     public static void main(String[] args) {

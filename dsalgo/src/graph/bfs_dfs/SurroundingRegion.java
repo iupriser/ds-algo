@@ -1,4 +1,4 @@
-package graph;
+package graph.bfs_dfs;
 
 // https://leetcode.com/problems/surrounded-regions/description/
 // https://www.geeksforgeeks.org/problems/replace-os-with-xs0052/1
