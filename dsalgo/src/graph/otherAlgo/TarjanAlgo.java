@@ -19,12 +19,17 @@ public class TarjanAlgo {
     public List<List<Integer>> criticalConnections(int n, List<List<Integer>> adj) {
         int[] vis = new int[n + 1];
         int[] tin = new int[n + 1];
+        /**
+         * low[] => to keep track of the lowest possible time by which we can reach that vertex 'other than parent path'
+         * so that if edge from parent is removed, can the particular node can be reached other than parent path.
+         */
         int[] low = new int[n + 1];
         List<List<Integer>> bridges = new ArrayList<>();
         dfs(1, -1, vis, adj, tin, low, bridges);
         return bridges;
     }
 
+    // O(V+E)
     private void dfs(int currNode, int parent, int[] vis, List<List<Integer>> adj, int[] tin, int[] low, List<List<Integer>> bridges) {
         vis[currNode] = 1;
         tin[currNode] = low[currNode] = timer;
@@ -36,6 +41,14 @@ public class TarjanAlgo {
                 dfs(adjNode, currNode, vis, adj, tin, low, bridges);
                 low[currNode] = Math.min(low[currNode], low[adjNode]);
                 // can there be a bridge between currNode----adjNode
+                // check if the lowest time of insertion of the adjacent node is greater than the time of insertion of the current node.
+                /**
+                 * After the DFS for any adjacent node gets completed, we will just check if the edge,
+                 * whose starting point is the current node and ending point is that adjacent node, is a bridge.
+                 * For that, we will just check if any other path from the current node to the adjacent node exists
+                 * if we remove that particular edge. If any other alternative path exists, this edge is not a bridge.
+                 * Otherwise, it can be considered a valid bridge.
+                 */
                 if (low[adjNode] > tin[currNode]) {
                     bridges.add(Arrays.asList(adjNode, currNode));
                 }
@@ -86,10 +99,10 @@ class TarganAlgoImplV2 {
         this.adj = adj;
         this.time = 0;
         // discovery time, disc[u]=time at which node u is first visited
-        this.disc = new int[n+1];// DFS time insertion
+        this.disc = new int[n + 1];// DFS time insertion
         // low-link value, low[u] = the lowest discovery time reachable from u(including u itself)
         // through dfs subtree and at-most one back-edge
-        this.low = new int[n+1];// lowest time of insertion of all adj nodes apart from parent
+        this.low = new int[n + 1];// lowest time of insertion of all adj nodes apart from parent
         this.bridges = new ArrayList<>();
 
         /**
