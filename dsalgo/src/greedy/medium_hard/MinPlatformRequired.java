@@ -11,10 +11,8 @@ public class MinPlatformRequired {
             int cnt = 1;
             for (int j = i + 1; j < n; j++) {
                 // overlapping/intersecting checks
-                if ((arr[i] <= arr[j] && dep[i] <= dep[j]) ||
-                        (arr[i] <= arr[j] && dep[i] >= dep[j]) ||
-                        (arr[i] >= arr[j] && dep[i] <= dep[j]) ||
-                        (arr[i] >= arr[j] && dep[i] >= dep[j])) {
+                if ((arr[i] >= arr[j] && arr[i] <= dep[j]) ||
+                        (arr[j] >= arr[i] && arr[j] <= dep[i])) {
                     cnt++;
                 }
                 maxCount = Math.max(maxCount, cnt);
@@ -47,7 +45,7 @@ public class MinPlatformRequired {
         MinPlatformRequired obj = new MinPlatformRequired();
         int[] arrival = {900, 945, 955, 1100, 1500};
         int[] departure = {920, 1200, 1130, 1150, 2000};
-        int minPlatform = obj.minPlatformOptimal(arrival, departure);
+        int minPlatform = obj.minPlatformBrute(arrival, departure);
         System.out.println("minimum number of platforms required : " + minPlatform);
         System.out.println("--------------------");
         minPlatform = obj.minPlatformOptimal(arrival, departure);
