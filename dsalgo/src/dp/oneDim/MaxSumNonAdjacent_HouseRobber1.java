@@ -6,10 +6,10 @@ import java.util.Arrays;
  * Given an array of N positive integers, we need to return the maximum sum of the subsequence such
  * that no two elements of the subsequence are adjacent elements in the array.
  */
-public class HouseRobber {
+public class MaxSumNonAdjacent_HouseRobber1 {
     private int[] dp;
 
-    public HouseRobber(int n) {
+    public MaxSumNonAdjacent_HouseRobber1(int n) {
         this.dp = new int[n];
         Arrays.fill(dp, -1);
     }
@@ -77,13 +77,13 @@ public class HouseRobber {
     public static void main(String[] args) {
         int[] house = {5, 5, 10, 100, 10, 5};
         int numOfHouse = house.length;
-        HouseRobber obj = new HouseRobber(numOfHouse);
+        MaxSumNonAdjacent_HouseRobber1 obj = new MaxSumNonAdjacent_HouseRobber1(numOfHouse);
         // converting it to zero based indexing
         int maxSumViaRec = obj.houseRobRec(numOfHouse - 1, house);
         System.out.println("Maximum sum robbed from house using Recursion: " + maxSumViaRec);
         int maxSumViaMemoization = obj.houseRobMemoization(numOfHouse - 1, house);
         System.out.println("Maximum sum robbed from house using Memoization(top-down): " + maxSumViaMemoization);
-        obj = new HouseRobber(numOfHouse);
+        obj = new MaxSumNonAdjacent_HouseRobber1(numOfHouse);
         int maxSumViaTabulation = obj.houseRobTabulation(numOfHouse - 1, house);
         System.out.println("Maximum sum robbed from house using Tabulation(bottom-up): " + maxSumViaTabulation);
         int maxSumViaSpaceOptimization = obj.houseRobSpaceOptimization(numOfHouse - 1, house);
